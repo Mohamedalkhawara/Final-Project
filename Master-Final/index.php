@@ -1,6 +1,9 @@
 <?php
 session_start(); // Start the session for login check
 include('db_connect.php');
+
+$appointment_link = 'appointment.php'; 
+
 // Check if user is logged in by verifying if user_id is set in the session
 if (isset($_SESSION['user_id'])) {
     // If logged in, fetch user information
@@ -34,6 +37,9 @@ if (isset($_POST['submit_testimonial'])) {
         echo "<script>alert('You must be logged in to submit a testimonial.');</script>";
     }
 }
+// Fetch test parts from the database
+$test_parts_query = "SELECT * FROM test_parts";
+$test_parts_result = mysqli_query($conn, $test_parts_query);
 
 ?>
 
@@ -51,8 +57,10 @@ if (isset($_POST['submit_testimonial'])) {
     </div>
     <!-- Spinner End -->
 
-   
-
+   <style1>
+    
+   </style>
+    
     <!-- Carousel Start -->
     <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -201,133 +209,43 @@ Learn from the best in the business, with training tailored to help you succeed 
     </div>
     <!-- About End -->
 
-    <!-- Courses Start -->
-    <div class="container-xxl courses my-6 py-6 pb-0">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h6 class="text-primary text-uppercase mb-2">Tranding Courses</h6>
-                <h1 class="display-6 mb-4">Our Courses Upskill You With Driving Training</h1>
-            </div>
-            <div class="row g-4 justify-content-center">
+  <!-- Courses Start -->
+<div class="container-xxl courses my-6 py-6 pb-0">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h6 class="text-primary text-uppercase mb-2">Trending Courses</h6>
+            <h1 class="display-6 mb-4">Our Courses Upskill You With Driving Training</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <?php while ($test_part = mysqli_fetch_assoc($test_parts_result)) { ?>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
                         <div class="text-center p-4 pt-0">
                             <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">$99</div>
-                            <h5 class="mb-3">Automatic Car Lessons</h5>
-                            <p>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</p>
+                            <h5 class="mb-3"><?php echo $test_part['part_name']; ?></h5>
+                            <p><?php echo $test_part['description']; ?></p>
                             <ol class="breadcrumb justify-content-center mb-0">
                                 <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li>
                                 <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
                             </ol>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/courses-1.jpg" alt="">
+                            <!-- Dynamic image path based on database -->
+                            <img class="img-fluid" src="uploads/test_parts/<?php echo $test_part['image_path']; ?>" alt="Test Part Image">
                             <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="#">Read More</a>
+                                <a class="btn btn-outline-primary border-2" href="test_start.php?part=<?php echo $test_part['id']; ?>">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
-                        <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">$99</div>
-                            <h5 class="mb-3">Highway Driving Lesson</h5>
-                            <p>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</p>
-                            <ol class="breadcrumb justify-content-center mb-0">
-                                <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li>
-                                <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
-                            </ol>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/courses-2.jpg" alt="">
-                            <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="#">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
-                        <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">$99</div>
-                            <h5 class="mb-3">International Driving</h5>
-                            <p>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</p>
-                            <ol class="breadcrumb justify-content-center mb-0">
-                                <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li>
-                                <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
-                            </ol>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/courses-3.jpg" alt="">
-                            <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="#">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
-                        <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">$99</div>
-                            <h5 class="mb-3">International Driving</h5>
-                            <p>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</p>
-                            <ol class="breadcrumb justify-content-center mb-0">
-                                <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li>
-                                <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
-                            </ol>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/courses-3.jpg" alt="">
-                            <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="#">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
-                        <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">$99</div>
-                            <h5 class="mb-3">International Driving</h5>
-                            <p>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</p>
-                            <ol class="breadcrumb justify-content-center mb-0">
-                                <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li>
-                                <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
-                            </ol>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/courses-3.jpg" alt="">
-                            <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="#">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
-                        <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">$99</div>
-                            <h5 class="mb-3">International Driving</h5>
-                            <p>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</p>
-                            <ol class="breadcrumb justify-content-center mb-0">
-                                <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li>
-                                <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
-                            </ol>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/courses-3.jpg" alt="">
-                            <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="#">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    
-            </div>
+            <?php } ?>
         </div>
     </div>
-    <!-- Courses End -->
+</div>
+<!-- Courses End -->
+
+
+
 
     <!-- Features Start -->
     <div class="container-xxl py-6">
