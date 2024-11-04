@@ -10,22 +10,22 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Get In Touch</h4>
                     <h2 class="text-primary mb-4"><i class="fa fa-car text-white me-2"></i>Drivin</h2>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Amman , Jordan</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+962 78 553 2135</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>Mohamed.Alkhawara@Yahoo</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="#">About Us</a>
-                    <a class="btn btn-link" href="#">Contact Us</a>
+                    <a class="btn btn-link" href="#about-us">About Us</a>
+                    <a class="btn btn-link" href="contact.php">Contact Us</a>
                     <a class="btn btn-link" href="#">Our Services</a>
                     <a class="btn btn-link" href="#">Terms & Condition</a>
                     <a class="btn btn-link" href="#">Support</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Popular Links</h4>
-                    <a class="btn btn-link" href="#">About Us</a>
-                    <a class="btn btn-link" href="#">Contact Us</a>
+                    <a class="btn btn-link" href="#about-us">About Us</a>
+                    <a class="btn btn-link" href="contact.php">Contact Us</a>
                     <a class="btn btn-link" href="#">Our Services</a>
                     <a class="btn btn-link" href="#">Terms & Condition</a>
                     <a class="btn btn-link" href="#">Support</a>

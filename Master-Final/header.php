@@ -56,7 +56,7 @@
             </div>
             <div class="h-100 d-inline-flex align-items-center">
                 <small class="far fa-clock text-primary me-2"></small>
-                <small>Sat - thr : 08.00 AM - 08.00 PM</small>
+                <small>Sat - Thr : 08.00 AM - 08.00 PM</small>
             </div>
         </div>
         <div class="col-lg-5 px-5 text-end">

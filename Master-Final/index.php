@@ -57,8 +57,12 @@ $test_parts_result = mysqli_query($conn, $test_parts_query);
     </div>
     <!-- Spinner End -->
 
-   <style1>
-    
+   <style>
+   .courses-item img {
+    width: 100%;
+    height: 25rem; /* Set a fixed height for consistency */
+    object-fit: cover; /* This will crop the image to fit within the given dimensions */
+}
    </style>
     
     <!-- Carousel Start -->
@@ -221,19 +225,18 @@ Learn from the best in the business, with training tailored to help you succeed 
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
                         <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">$99</div>
+                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">THEORY TEST</div>
                             <h5 class="mb-3"><?php echo $test_part['part_name']; ?></h5>
                             <p><?php echo $test_part['description']; ?></p>
                             <ol class="breadcrumb justify-content-center mb-0">
                                 <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li>
-                                <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
                             </ol>
                         </div>
                         <div class="position-relative mt-auto">
                             <!-- Dynamic image path based on database -->
                             <img class="img-fluid" src="uploads/test_parts/<?php echo $test_part['image_path']; ?>" alt="Test Part Image">
                             <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="test_start.php?part=<?php echo $test_part['id']; ?>">Read More</a>
+                                <a class="btn btn-outline-primary border-2" href="test_start.php?part=<?php echo $test_part['id']; ?>">Start Test</a>
                             </div>
                         </div>
                     </div>

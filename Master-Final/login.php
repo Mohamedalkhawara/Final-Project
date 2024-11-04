@@ -5,6 +5,15 @@ include 'db_connect.php';
 $login_success_message = '';
 $login_error_message = '';
 
+// Check if there is a session message
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    // Unset the message after displaying it
+    unset($_SESSION['message']);
+} else {
+    $message = '';
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -47,7 +56,12 @@ $conn->close();
 include 'header.php';
 include 'navbar.php';
 ?>
-
+ <!-- Display the session message as an alert -->
+ <?php if ($message): ?>
+        <script>
+            alert("<?php echo addslashes($message); ?>");
+        </script>
+    <?php endif; ?>
 <!-- Login HTML Code -->
 <div class="container-xxl py-6">
     <div class="container">

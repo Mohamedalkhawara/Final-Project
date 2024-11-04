@@ -138,7 +138,8 @@ $enrollments_json = json_encode($enrollments);
 
 <div class="sidebar">
     <h1>
-        Admin
+    <h2 class="text-primary mb-4"><i class="fa fa-car text-white me-2"></i>Drivin</h2>
+
         <div class="notification-wrapper">
             <a href="notifications.php" class="notification-bell">
                 <i class="fa fa-bell"></i>
@@ -180,14 +181,16 @@ $enrollments_json = json_encode($enrollments);
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="card text-white bg-info mb-3">
                         <div class="card-body">
-                            <h5 class="card-title">Upcoming Sessions</h5>
-                            <p class="card-text"><?php echo $upcoming_sessions; ?></p>
+                            <h5 class="card-title">In Session</h5>
+                            <p class="card-text"><?php echo $in_session; ?></p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-md-3">
                     <div class="card text-white bg-warning mb-3">
                         <div class="card-body">
@@ -204,14 +207,7 @@ $enrollments_json = json_encode($enrollments);
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card text-white bg-secondary mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">In Session</h5>
-                            <p class="card-text"><?php echo $in_session; ?></p>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
 
